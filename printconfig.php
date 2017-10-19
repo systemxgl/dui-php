@@ -1,5 +1,5 @@
 <?php
 const BASEURL = "http://www.open.mstching.com";
-const APPID = "ÄúÉêÇëµÄappkey";
-const APPSECRET = "ÄúÉêÇëµÄappsecret";
+const APPID ="æ‚¨ç”³è¯·çš„appkey";
+const APPSECRET = "æ‚¨ç”³è¯·çš„appsecret";
 ?>
