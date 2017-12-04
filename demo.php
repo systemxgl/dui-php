@@ -1,36 +1,36 @@
 <?php
 require 'printhelper.php';
-//Éè±¸±àºÅ
-$uuid="ÄúµÄÉè±¸±àºÅ";
+//è®¾å¤‡ç¼–å·
+$uuid="æ‚¨çš„è®¾å¤‡ç¼–å·";
 
-//ÊµÀý»¯
+//å®žä¾‹åŒ–
 $helper = new PrintHelper();
 
 /*
- * ÓÃ»§Éè±¸°ó¶¨
- * ·µ»ØÊý¾Ý¸ñÊ½£º{"OpenUserId":1251,"Code":200,"Message":"³É¹¦"}
+ * ç”¨æˆ·è®¾å¤‡ç»‘å®š
+ * è¿”å›žæ•°æ®æ ¼å¼ï¼š{"OpenUserId":1251,"Code":200,"Message":"æˆåŠŸ"}
  */
-echo $helper->userBind(uuid, '100');//100 ÄúÏµÍ³µÄÓÃ»§±àºÅ£¨×Ô¼º¶¨Òå£©×îºÃÊÇÊý×Ö
+echo $helper->userBind($uuid, '100');//100 æ‚¨ç³»ç»Ÿçš„ç”¨æˆ·ç¼–å·ï¼ˆè‡ªå·±å®šä¹‰ï¼‰æœ€å¥½æ˜¯æ•°å­—
 
 /*
- * »ñÈ¡Éè±¸×´Ì¬
- * ·µ»ØÊý¾Ý¸ñÊ½£º"}{"State":0,"Code":200,"Message":"³É¹¦"}
+ * èŽ·å–è®¾å¤‡çŠ¶æ€
+ * è¿”å›žæ•°æ®æ ¼å¼ï¼š"}{"State":0,"Code":200,"Message":"æˆåŠŸ"}
  */
 echo $helper->getDeviceState(uuid);
 
-//Òª´òÓ¡µÄÄÚÈÝ
-$content="²âÊÔ´òÓ¡\n²âÊÔ»»ÐÐ";
+//è¦æ‰“å°çš„å†…å®¹
+$content="æµ‹è¯•æ‰“å°\næµ‹è¯•æ¢è¡Œ";
 $base64Str= base64_encode($content);
-//¸ñÊ½Ïê¼û https://github.com/systemxgl/dui-api »ò http://www.mstching.com/openapi.pdf
+//æ ¼å¼è¯¦è§ https://github.com/systemxgl/dui-api æˆ– http://www.mstching.com/openapi.pdf
 $jsonContent="[{\"Alignment\":0,\"BaseText\":\"".$base64Str."\",\"Bold\":0,\"FontSize\":0,\"PrintType\":0}]";
 /*
- * ´òÓ¡ÐÅÏ¢
- * ·µ»ØÊý¾Ý¸ñÊ½£º{"TaskId":1,"Code":200,"Message":"³É¹¦"}
+ * æ‰“å°ä¿¡æ¯
+ * è¿”å›žæ•°æ®æ ¼å¼ï¼š{"TaskId":1,"Code":200,"Message":"æˆåŠŸ"}
  */
-echo $helper->printContent($uuid, $jsonContent, "0");//0¸Ä³ÉÓÃ»§Éè±¸°ó¶¨·µ»ØµÄOpenUserId
+echo $helper->printContent($uuid, $jsonContent, "0");//0æ”¹æˆç”¨æˆ·è®¾å¤‡ç»‘å®šè¿”å›žçš„OpenUserId
 /*
- * ²éÑ¯ÈÎÎñ×´Ì¬
- * ·µ»ØÊý¾Ý¸ñÊ½ {"State":1,"Code":200,"Message":"³É¹¦"}
+ * æŸ¥è¯¢ä»»åŠ¡çŠ¶æ€
+ * è¿”å›žæ•°æ®æ ¼å¼ {"State":1,"Code":200,"Message":"æˆåŠŸ"}
  */
-echo $helper->getPrintTaskState("0");//0¸Ä³ÉÈÎÎñ±àºÅ
+echo $helper->getPrintTaskState("0");//0æ”¹æˆä»»åŠ¡ç¼–å·
 ?>
