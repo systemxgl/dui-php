@@ -16,7 +16,7 @@ echo $helper->userBind($uuid, '100');//100 您系统的用户编号（自己定�
  * 获取设备状态
  * 返回数据格式："}{"State":0,"Code":200,"Message":"成功"}
  */
-echo $helper->getDeviceState(uuid);
+echo $helper->getDeviceState($uuid);
 
 //要打印的内容
 $content="测试打印\n测试换行";
@@ -28,6 +28,12 @@ $jsonContent="[{\"Alignment\":0,\"BaseText\":\"".$base64Str."\",\"Bold\":0,\"Fon
  * 返回数据格式：{"TaskId":1,"Code":200,"Message":"成功"}
  */
 echo $helper->printContent($uuid, $jsonContent, "0");//0改成用户设备绑定返回的OpenUserId
+/*
+ * 打印网页信息
+ * 返回数据格式：{"TaskId":1,"Code":200,"Message":"成功"}
+ */
+$printUrl="您要打印的网页地址"; //例：http://www.open.mstching.com/print-demo.html
+echo $helper->printHtmlContent($uuid, $printUrl, "0");//0改成用户设备绑定返回的OpenUserId
 /*
  * 查询任务状态
  * 返回数据格式 {"State":1,"Code":200,"Message":"成功"}
