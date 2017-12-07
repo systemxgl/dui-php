@@ -3,9 +3,9 @@ require 'utils.php';
 
 class PrintHelper{
     /*
-     * ÓÃ»§Éè±¸°ó¶¨
-     * $uuid Éè±¸±àºÅ
-     * $userId Óë¶Ô¶Ô»úÆ½Ì¨¹ØÁªµÄÓÃ»§Î¨Ò»±êÊ¾£¨Äã×Ô¼ºÏµÍ³¶¨ÒåµÄ£©
+     * ç”¨æˆ·è®¾å¤‡ç»‘å®š
+     * $uuid è®¾å¤‡ç¼–å·
+     * $userId ä¸å¯¹å¯¹æœºå¹³å°å…³è”çš„ç”¨æˆ·å”¯ä¸€æ ‡ç¤ºï¼ˆä½ è‡ªå·±ç³»ç»Ÿå®šä¹‰çš„ï¼‰
      */
     function userBind($uuid,$userId){
         $url = getUrl("/home/userbind");
@@ -13,8 +13,8 @@ class PrintHelper{
         return http_post_json($url, $jsonStr); 
     }
     /*
-     * »ñÈ¡Éè±¸×´Ì¬
-     * $uuid Éè±¸±àºÅ
+     * è·å–è®¾å¤‡çŠ¶æ€
+     * $uuid è®¾å¤‡ç¼–å·
      */
     function getDeviceState($uuid){
         $url = getUrl("/home/getdevicestate");
@@ -22,10 +22,10 @@ class PrintHelper{
         return http_post_json($url, $jsonStr);
     }
     /*
-     * ´òÓ¡ĞÅÏ¢
-     * $uuid Éè±¸±àºÅ
-     * $content ´òÓ¡µÄÄÚÈİ
-     * $OpenUserId µ÷ÓÃ userBindº¯Êı·µ»ØµÄopenUserId
+     * æ‰“å°ä¿¡æ¯
+     * $uuid è®¾å¤‡ç¼–å·
+     * $content æ‰“å°çš„å†…å®¹
+     * $OpenUserId è°ƒç”¨ userBindå‡½æ•°è¿”å›çš„openUserId
      */
     function printContent($uuid,$content,$openUserId){
         $url = getUrl("/home/printcontent2");
@@ -33,8 +33,19 @@ class PrintHelper{
         return http_post_json($url, $jsonStr);
     }
     /*
-     * ²éÑ¯ÈÎÎñ×´Ì¬
-     * $taskId ÈÎÎñ±àºÅ
+     * æ‰“å°ç½‘é¡µä¿¡æ¯
+     * $uuid è®¾å¤‡ç¼–å·
+     * $printUrl æ‰“å°ç½‘é¡µåœ°å€
+     * $OpenUserId è°ƒç”¨ userBindå‡½æ•°è¿”å›çš„openUserId
+     */
+    function  printHtmlContent($uuid,$printUrl,$openUserId){
+        $url = getUrl("/home/printhtmlcontent");
+        $jsonStr = json_encode(array('Uuid' => $uuid,'PrintUrl'=>$printUrl,'OpenUserId'=>$openUserId));
+        return http_post_json($url, $jsonStr);
+    }
+    /*
+     * æŸ¥è¯¢ä»»åŠ¡çŠ¶æ€
+     * $taskId ä»»åŠ¡ç¼–å·
      */
     function getPrintTaskState($taskId){
         $url = getUrl("/home/getprinttaskstate");
