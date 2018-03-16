@@ -20,6 +20,8 @@ echo $helper->getDeviceState($uuid);
 
 //要打印的内容
 $content="测试打印\n测试换行";
+//如果系统不是gbk编码，那么此处需要进行一次转换，下面的代码取消注释即可。
+//$content=iconv("UTF-8", "GBK//IGNORE", $content);
 $base64Str= base64_encode($content);
 //格式详见 https://github.com/systemxgl/dui-api 或 http://www.mstching.com/openapi.pdf
 $jsonContent="[{\"Alignment\":0,\"BaseText\":\"".$base64Str."\",\"Bold\":0,\"FontSize\":0,\"PrintType\":0}]";
