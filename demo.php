@@ -10,7 +10,7 @@ $helper = new PrintHelper();
  * 用户设备绑定
  * 返回数据格式：{"OpenUserId":1251,"Code":200,"Message":"成功"}
  */
-echo $helper->userBind($uuid, '100');//100 您系统的用户编号（自己定义）最好是数字
+echo $helper->userBind($uuid, '100', '设备名称');//100 您系统的用户编号（自己定义）最好是数字
 
 /*
  * 获取设备状态
