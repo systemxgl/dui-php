@@ -7,10 +7,15 @@ class PrintHelper{
      * $uuid 设备编号
      * $userId 与对对机平台关联的用户唯一标示（你自己系统定义的）
      */
-    function userBind($uuid,$userId){
+   function userBind($uuid, $userId, $deviceName)
+    {
         $url = getUrl("/home/userbind");
-        $jsonStr = json_encode(array('Uuid' => $uuid, 'UserId' => $userId));
-        return http_post_json($url, $jsonStr); 
+        $jsonStr = json_encode(array(
+            'Uuid' => $uuid,
+            'UserId' => $userId,
+            'DeviceName' => $deviceName
+        ));
+        return http_post_json($url, $jsonStr);
     }
     /*
      * 获取设备状态
